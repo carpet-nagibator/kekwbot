@@ -111,7 +111,7 @@ def check_answer(viber_id, user_answer):
 
     update_query = session.query(Users).filter(Users.viber_id == viber_id).one()
     update_query.all_answers += 1
-    update_query.dt_last_answer = datetime.now()
+    update_query.dt_last_answer = datetime.utcnow()
     session.commit()
 
     if user_answer == question['translation']:
@@ -122,7 +122,7 @@ def check_answer(viber_id, user_answer):
         update_query2 = session.query(Learning).filter(Learning.word == question['word']).filter(
             Learning.user_id == select_query[1]).one()
         update_query2.right_answer += 1
-        update_query2.dt_last_answer = datetime.now()
+        update_query2.dt_last_answer = datetime.utcnow()
         session.commit()
         select_query2 = session.query(Learning.right_answer).filter(Learning.word == question['word']).filter(
             Learning.user_id == select_query[1]).one()
@@ -143,7 +143,7 @@ def send_example(viber_id):
 def update_time(viber_id):
     session = Session()
     update_query = session.query(Users).filter(Users.viber_id == viber_id).one()
-    update_query.dt_last_answer = datetime.now()
+    update_query.dt_last_answer = datetime.utcnow()
     session.commit()
     session.close()
     return TextMessage(text='Прохождение теста отложено на полчаса KEKW')
