@@ -64,6 +64,7 @@ def send_question(viber_id):
         session.commit()
         select_query2 = session.query(Learning.word).filter(Learning.user_id == select_query[2]).filter(
             Learning.right_answer >= 5).count()
+        session.close()
         return TextMessage(text=f'У вас {temp_correct_answers} верных из 10. '
                                 f'Вы уже выучили {select_query2} слов. '
                                 f'Осталось выучить {50 - select_query2} слов. '
@@ -134,8 +135,18 @@ def send_example(viber_id):
     session = Session()
     select_query = session.query(Users.question).filter(Users.viber_id == viber_id).one()
     question = eval(select_query[0])
+    session.close()
     return TextMessage(text=f'{random.choice(question["examples"])}',
                        keyboard=KEYBOARD2, tracking_data='tracking_data')
+
+
+def update_time(viber_id):
+    session = Session()
+    update_query = session.query(Users).filter(Users.viber_id == viber_id).one()
+    update_query.dt_last_answer = datetime.now()
+    session.commit()
+    session.close()
+    return TextMessage(text='Прохождение теста отложено на полчаса')
 
 
 app = Flask(__name__)
@@ -251,6 +262,9 @@ def incoming():
                 viber.send_messages(current_id, bot_response)
             elif text == "Показать пример":
                 bot_response = send_example(current_id)
+                viber.send_messages(current_id, bot_response)
+            elif text == "Отложить":
+                bot_response = update_time(current_id)
                 viber.send_messages(current_id, bot_response)
             else:
                 bot_response_1 = check_answer(current_id, text)
