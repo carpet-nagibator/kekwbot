@@ -14,8 +14,8 @@ from viberbot.api.messages import (
     TextMessage
 )
 
-#engine = create_engine('sqlite:///mydb.db', echo=True)
-engine = create_engine('postgres://lczzteaucanfvc:994b06b0eb663196de10011cdc9f3f087130adeba87ebb6fddb482fe371ce3cc@ec2-52-200-119-0.compute-1.amazonaws.com:5432/dcqbg6ek6hjaiq', echo=True)
+engine = create_engine('sqlite:///mydb.db', echo=True)
+#engine = create_engine('postgres://lczzteaucanfvc:994b06b0eb663196de10011cdc9f3f087130adeba87ebb6fddb482fe371ce3cc@ec2-52-200-119-0.compute-1.amazonaws.com:5432/dcqbg6ek6hjaiq', echo=True)
 Base = declarative_base()
 Base.metadata.create_all(engine)
 Session = sessionmaker(engine)
@@ -216,27 +216,6 @@ KEYBOARD2 = {
         }
     ]
 }
-
-KEYBOARD3 = {
-"Type": "keyboard",
-"Buttons": [
-        {
-            "Columns": 6,
-            "Rows": 1,
-            "BgColor": "#e6f5ff",
-            "ActionBody": "Давай начнём!",
-            "Text": "Давай начнём!"
-        },
-        {
-            "Columns": 6,
-            "Rows": 1,
-            "BgColor": "#e6f5ff",
-            "ActionBody": "Отложить",
-            "Text": "Отложить"
-        }
-    ]
-}
-
 
 @app.route('/incoming', methods=['POST'])
 def incoming():
