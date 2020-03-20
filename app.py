@@ -17,7 +17,6 @@ from viberbot.api.messages import (
 #engine = create_engine('sqlite:///mydb.db', echo=True)
 engine = create_engine('postgres://lczzteaucanfvc:994b06b0eb663196de10011cdc9f3f087130adeba87ebb6fddb482fe371ce3cc@ec2-52-200-119-0.compute-1.amazonaws.com:5432/dcqbg6ek6hjaiq', echo=True)
 Base = declarative_base()
-Base.metadata.create_all(engine)
 Session = sessionmaker(engine)
 
 
@@ -219,6 +218,7 @@ KEYBOARD2 = {
 
 @app.route('/incoming', methods=['POST'])
 def incoming():
+    Base.metadata.create_all(engine)
     viber_request = viber.parse_request(request.get_data())
     print(viber_request)
     if isinstance(viber_request, ViberConversationStartedRequest):

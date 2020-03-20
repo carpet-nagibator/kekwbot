@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="eba61307-3237-4f83-a67c-66ddf9f991c8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -208,7 +209,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584730560399</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="10th commit(postgres)">
+      <created>1584731174137</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1584731174137</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -233,6 +241,7 @@
     <MESSAGE value="7th commit" />
     <MESSAGE value="8th commit" />
     <MESSAGE value="9th commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="9th commit" />
+    <MESSAGE value="10th commit(postgres)" />
+    <option name="LAST_COMMIT_MESSAGE" value="10th commit(postgres)" />
   </component>
 </project>
