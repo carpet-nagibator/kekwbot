@@ -146,7 +146,7 @@ def update_time(viber_id):
     update_query.dt_last_answer = datetime.now()
     session.commit()
     session.close()
-    return TextMessage(text='Прохождение теста отложено на полчаса')
+    return TextMessage(text='Прохождение теста отложено на полчаса KEKW')
 
 
 app = Flask(__name__)
