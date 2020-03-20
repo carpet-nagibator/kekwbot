@@ -43,6 +43,7 @@ def timed_job():
     all_users = session.query(Users.viber_id, Users.dt_last_answer)
     for user in all_users:
         delta = datetime.utcnow() - user[1]
+        print(f'delta time = {delta.seconds}')
         if delta.seconds > 1800:
             bot_response = TextMessage(text='Пройдите тест заново', keyboard=KEYBOARD3, tracking_data='tracking_data')
             viber.send_messages(user[0], bot_response)
