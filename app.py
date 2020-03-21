@@ -252,6 +252,8 @@ def incoming():
                 answer = eval(text)
                 bot_response_1 = check_answer(current_id, answer['answer'], answer['question_number'])
                 bot_response_2 = send_question(current_id)
+                print(bot_response_1)
+                print(bot_response_2)
                 viber.send_messages(current_id, [bot_response_1, bot_response_2])
     return Response(status=200)
 
