@@ -89,12 +89,13 @@ def send_question(viber_id):
         session.commit()
 
         temp_answers.append(question['translation'])
-        temp_question = {'question_number': f'{select_query[0] + 1}',
-                         'answer': f"{question['translation']}"}
+
         for i in range(3):
             temp_answers.append(random.choice(data)['translation'])
         random.shuffle(temp_answers)
         for i in range(4):
+            temp_question = {'question_number': f'{select_query[0] + 1}',
+                             'answer': f"{temp_answers[i]}"}
             KEYBOARD2['Buttons'][i]['Text'] = f'{temp_answers[i]}'
             KEYBOARD2['Buttons'][i]['ActionBody'] = f'{temp_question}'
         session.close()
