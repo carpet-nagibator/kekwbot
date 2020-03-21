@@ -109,6 +109,9 @@ def check_answer(viber_id, user_answer, question_number):
     select_query = session.query(Users.question, Users.user_id, Users.all_answers).filter(Users.viber_id == viber_id).one()
     question = eval(select_query[0])
 
+    print(question_number)
+    print(select_query[2])
+
     if question_number == select_query[2]:
         update_query = session.query(Users).filter(Users.viber_id == viber_id).one()
         update_query.all_answers += 1
