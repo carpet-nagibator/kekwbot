@@ -109,9 +109,6 @@ def check_answer(viber_id, user_answer, question_number):
     select_query = session.query(Users.question, Users.user_id, Users.all_answers).filter(Users.viber_id == viber_id).one()
     question = eval(select_query[0])
 
-    print(question_number)
-    print(select_query[2])
-
     if question_number == select_query[2]:
         update_query = session.query(Users).filter(Users.viber_id == viber_id).one()
         update_query.all_answers += 1
@@ -256,8 +253,6 @@ def incoming():
                 answer = eval(text)
                 bot_response_1 = check_answer(current_id, answer['answer'], answer['question_number'])
                 bot_response_2 = send_question(current_id)
-                print(bot_response_1)
-                print(bot_response_2)
                 viber.send_messages(current_id, [bot_response_1, bot_response_2])
     return Response(status=200)
 
