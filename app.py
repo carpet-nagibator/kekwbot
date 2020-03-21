@@ -1,10 +1,9 @@
 import json
 import random
-import sqlite3
 from datetime import datetime
 from Settings import TOKEN, WEBHOOK
 from flask import Flask, request, Response
-from sqlalchemy import create_engine, ForeignKey, desc, Column, Integer, Float, String, DateTime
+from sqlalchemy import create_engine, ForeignKey, Column, Integer, String, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, relationship
 from viberbot import Api
@@ -14,7 +13,6 @@ from viberbot.api.messages import (
     TextMessage
 )
 
-#engine = create_engine('sqlite:///mydb.db', echo=True)
 engine = create_engine('postgres://lczzteaucanfvc:994b06b0eb663196de10011cdc9f3f087130adeba87ebb6fddb482fe371ce3cc@ec2-52-200-119-0.compute-1.amazonaws.com:5432/dcqbg6ek6hjaiq', echo=True)
 Base = declarative_base()
 Session = sessionmaker(engine)
@@ -91,43 +89,46 @@ def send_question(viber_id):
         session.commit()
 
         temp_answers.append(question['translation'])
+        temp_question = {'question_number': f'{select_query[0] + 1}',
+                         'answer': f"{question['translation']}"}
         for i in range(3):
             temp_answers.append(random.choice(data)['translation'])
         random.shuffle(temp_answers)
         for i in range(4):
             KEYBOARD2['Buttons'][i]['Text'] = f'{temp_answers[i]}'
-            KEYBOARD2['Buttons'][i]['ActionBody'] = f'{temp_answers[i]}'
+            KEYBOARD2['Buttons'][i]['ActionBody'] = f'{temp_question}'
         session.close()
         return TextMessage(text=f'{select_query[0] + 1}.Как переводится слово {question["word"]}',
                            keyboard=KEYBOARD2, tracking_data='tracking_data')
 
 
-def check_answer(viber_id, user_answer):
+def check_answer(viber_id, user_answer, question_number):
     check = 'Неверно'
     session = Session()
-    select_query = session.query(Users.question, Users.user_id).filter(Users.viber_id == viber_id).one()
+    select_query = session.query(Users.question, Users.user_id, Users.all_answers).filter(Users.viber_id == viber_id).one()
     question = eval(select_query[0])
 
-    update_query = session.query(Users).filter(Users.viber_id == viber_id).one()
-    update_query.all_answers += 1
-    update_query.dt_last_answer = datetime.utcnow()
-    session.commit()
-
-    if user_answer == question['translation']:
-        update_query1 = session.query(Users).filter(Users.viber_id == viber_id).one()
-        update_query1.correct_answers += 1
+    if question_number == select_query[2] + 1:
+        update_query = session.query(Users).filter(Users.viber_id == viber_id).one()
+        update_query.all_answers += 1
+        update_query.dt_last_answer = datetime.utcnow()
         session.commit()
 
-        update_query2 = session.query(Learning).filter(Learning.word == question['word']).filter(
-            Learning.user_id == select_query[1]).one()
-        update_query2.right_answer += 1
-        update_query2.dt_last_answer = datetime.utcnow()
-        session.commit()
-        select_query2 = session.query(Learning.right_answer).filter(Learning.word == question['word']).filter(
-            Learning.user_id == select_query[1]).one()
-        check = f'Верно. Количество правильных ответов: {select_query2[0]}'
-    session.close()
-    return TextMessage(text=check, keyboard=KEYBOARD2, tracking_data='tracking_data')
+        if user_answer == question['translation']:
+            update_query1 = session.query(Users).filter(Users.viber_id == viber_id).one()
+            update_query1.correct_answers += 1
+            session.commit()
+
+            update_query2 = session.query(Learning).filter(Learning.word == question['word']).filter(
+                Learning.user_id == select_query[1]).one()
+            update_query2.right_answer += 1
+            update_query2.dt_last_answer = datetime.utcnow()
+            session.commit()
+            select_query2 = session.query(Learning.right_answer).filter(Learning.word == question['word']).filter(
+                Learning.user_id == select_query[1]).one()
+            check = f'Верно. Количество правильных ответов: {select_query2[0]}'
+        session.close()
+        return TextMessage(text=check, keyboard=KEYBOARD2, tracking_data='tracking_data')
 
 
 def send_example(viber_id):
@@ -216,6 +217,7 @@ KEYBOARD2 = {
     ]
 }
 
+
 @app.route('/incoming', methods=['POST'])
 def incoming():
     Base.metadata.create_all(engine)
@@ -233,7 +235,7 @@ def incoming():
         current_id = viber_request.sender.id
         message = viber_request.message
         if isinstance(message, TextMessage):
-            text = message.text
+            text = eval(message.text)
             print(text)
             # чтение введёного текста
             if text == "Давай начнём!":
@@ -246,7 +248,7 @@ def incoming():
                 bot_response = update_time(current_id)
                 viber.send_messages(current_id, bot_response)
             else:
-                bot_response_1 = check_answer(current_id, text)
+                bot_response_1 = check_answer(current_id, text['answer'], text['question_number'])
                 bot_response_2 = send_question(current_id)
                 viber.send_messages(current_id, [bot_response_1, bot_response_2])
     return Response(status=200)
