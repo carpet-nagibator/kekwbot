@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eba61307-3237-4f83-a67c-66ddf9f991c8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-    </list>
+    <list default="true" id="eba61307-3237-4f83-a67c-66ddf9f991c8" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -257,7 +255,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584779331573</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="17th commit(postgres) BlessRng aaaaaaa">
+      <created>1584779636831</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1584779636831</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -289,6 +294,7 @@
     <MESSAGE value="14th commit(postgres) BlessRng aaaaaaa" />
     <MESSAGE value="15th commit(postgres) BlessRng aaaaaaa" />
     <MESSAGE value="16th commit(postgres) BlessRng aaaaaaa" />
-    <option name="LAST_COMMIT_MESSAGE" value="16th commit(postgres) BlessRng aaaaaaa" />
+    <MESSAGE value="17th commit(postgres) BlessRng aaaaaaa" />
+    <option name="LAST_COMMIT_MESSAGE" value="17th commit(postgres) BlessRng aaaaaaa" />
   </component>
 </project>
