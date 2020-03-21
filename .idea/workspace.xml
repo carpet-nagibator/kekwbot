@@ -250,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584779036076</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="16th commit(postgres) BlessRng aaaaaaa">
+      <created>1584779331573</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1584779331573</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -281,6 +288,7 @@
     <MESSAGE value="13th commit(postgres) BlessRng" />
     <MESSAGE value="14th commit(postgres) BlessRng aaaaaaa" />
     <MESSAGE value="15th commit(postgres) BlessRng aaaaaaa" />
-    <option name="LAST_COMMIT_MESSAGE" value="15th commit(postgres) BlessRng aaaaaaa" />
+    <MESSAGE value="16th commit(postgres) BlessRng aaaaaaa" />
+    <option name="LAST_COMMIT_MESSAGE" value="16th commit(postgres) BlessRng aaaaaaa" />
   </component>
 </project>
