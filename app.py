@@ -130,6 +130,7 @@ def check_answer(viber_id, user_answer, question_number):
             check = f'Верно. Количество правильных ответов: {select_query2[0]}'
         session.close()
         return TextMessage(text=check, keyboard=KEYBOARD2, tracking_data='tracking_data')
+    return TextMessage(text='тут выход')
 
 
 def send_example(viber_id):
