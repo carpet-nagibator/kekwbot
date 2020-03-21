@@ -13,6 +13,7 @@ from viberbot.api.messages import (
     TextMessage
 )
 
+#engine = create_engine('sqlite:///mydb.db', echo=True)
 engine = create_engine('postgres://lczzteaucanfvc:994b06b0eb663196de10011cdc9f3f087130adeba87ebb6fddb482fe371ce3cc@ec2-52-200-119-0.compute-1.amazonaws.com:5432/dcqbg6ek6hjaiq', echo=True)
 Base = declarative_base()
 Session = sessionmaker(engine)
@@ -108,8 +109,7 @@ def check_answer(viber_id, user_answer, question_number):
     session = Session()
     select_query = session.query(Users.question, Users.user_id, Users.all_answers).filter(Users.viber_id == viber_id).one()
     question = eval(select_query[0])
-
-    if question_number == select_query[2]:
+    if int(question_number) == int(select_query[2]):
         update_query = session.query(Users).filter(Users.viber_id == viber_id).one()
         update_query.all_answers += 1
         update_query.dt_last_answer = datetime.utcnow()
@@ -222,7 +222,7 @@ KEYBOARD2 = {
 
 @app.route('/incoming', methods=['POST'])
 def incoming():
-    Base.metadata.create_all(engine)
+    #Base.metadata.create_all(engine)
     viber_request = viber.parse_request(request.get_data())
     print(viber_request)
     if isinstance(viber_request, ViberConversationStartedRequest):
