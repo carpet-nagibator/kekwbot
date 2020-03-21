@@ -235,7 +235,7 @@ def incoming():
         current_id = viber_request.sender.id
         message = viber_request.message
         if isinstance(message, TextMessage):
-            text = eval(message.text)
+            text = message.text
             print(text)
             # чтение введёного текста
             if text == "Давай начнём!":
@@ -248,7 +248,8 @@ def incoming():
                 bot_response = update_time(current_id)
                 viber.send_messages(current_id, bot_response)
             else:
-                bot_response_1 = check_answer(current_id, text['answer'], text['question_number'])
+                answer = eval(text)
+                bot_response_1 = check_answer(current_id, answer['answer'], answer['question_number'])
                 bot_response_2 = send_question(current_id)
                 viber.send_messages(current_id, [bot_response_1, bot_response_2])
     return Response(status=200)
