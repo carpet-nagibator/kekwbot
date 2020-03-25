@@ -115,42 +115,41 @@ def send_question(viber_id):
                            keyboard=KEYBOARD2, tracking_data='tracking_data')
 
 
-def check_answer(viber_id, user_answer, question_number):
+def check_answer(viber_id, user_answer):
     check = 'Неверно'
     session = Session()
     select_query = session.query(Users.question, Users.user_id, Users.all_answers).filter(Users.viber_id == viber_id).one()
     session.close()
     question = eval(select_query[0])
-    if int(question_number) == int(select_query[2]):
+
+    session = Session()
+    update_query = session.query(Users).filter(Users.viber_id == viber_id).one()
+    update_query.all_answers += 1
+    update_query.dt_last_answer = datetime.utcnow()
+    session.commit()
+    session.close()
+
+    if user_answer == question['translation']:
         session = Session()
-        update_query = session.query(Users).filter(Users.viber_id == viber_id).one()
-        update_query.all_answers += 1
-        update_query.dt_last_answer = datetime.utcnow()
+        update_query1 = session.query(Users).filter(Users.viber_id == viber_id).one()
+        update_query1.correct_answers += 1
         session.commit()
         session.close()
 
-        if user_answer == question['translation']:
-            session = Session()
-            update_query1 = session.query(Users).filter(Users.viber_id == viber_id).one()
-            update_query1.correct_answers += 1
-            session.commit()
-            session.close()
+        session = Session()
+        update_query2 = session.query(Learning).filter(Learning.word == question['word']).filter(
+            Learning.user_id == select_query[1]).one()
+        update_query2.right_answer += 1
+        update_query2.dt_last_answer = datetime.utcnow()
+        session.commit()
+        session.close()
 
-            session = Session()
-            update_query2 = session.query(Learning).filter(Learning.word == question['word']).filter(
-                Learning.user_id == select_query[1]).one()
-            update_query2.right_answer += 1
-            update_query2.dt_last_answer = datetime.utcnow()
-            session.commit()
-            session.close()
-
-            session = Session()
-            select_query2 = session.query(Learning.right_answer).filter(Learning.word == question['word']).filter(
-                Learning.user_id == select_query[1]).one()
-            session.close()
-            check = f'Верно. Количество правильных ответов: {select_query2[0]}'
-        return TextMessage(text=check, keyboard=KEYBOARD2, tracking_data='tracking_data')
-    return TextMessage(text='тут выход')
+        session = Session()
+        select_query2 = session.query(Learning.right_answer).filter(Learning.word == question['word']).filter(
+            Learning.user_id == select_query[1]).one()
+        session.close()
+        check = f'Верно. Количество правильных ответов: {select_query2[0]}'
+    return TextMessage(text=check, keyboard=KEYBOARD2, tracking_data='tracking_data')
 
 
 def send_example(viber_id):
@@ -171,8 +170,11 @@ def update_time(viber_id):
     return TextMessage(text='Прохождение теста отложено на полчаса KEKW')
 
 
-def get_question_number():
-    pass
+def get_question_number(viber_id):
+    session = Session()
+    select_query = session.query(Users.all_answers).filter(Users.viber_id == viber_id).one()
+    session.close()
+    return select_query[0]
 
 
 app = Flask(__name__)
@@ -275,9 +277,11 @@ def incoming():
                 viber.send_messages(current_id, bot_response)
             else:
                 answer = eval(text)
-                bot_response_1 = check_answer(current_id, answer['answer'], answer['question_number'])
-                bot_response_2 = send_question(current_id)
-                viber.send_messages(current_id, [bot_response_1, bot_response_2])
+                question_number = get_question_number(current_id)
+                if int(question_number) == int(answer['question_number']):
+                    bot_response_1 = check_answer(current_id, answer['answer'])
+                    bot_response_2 = send_question(current_id)
+                    viber.send_messages(current_id, [bot_response_1, bot_response_2])
     return Response(status=200)
 
 

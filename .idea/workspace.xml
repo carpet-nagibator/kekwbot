@@ -293,7 +293,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584790101336</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="22th commit(postgres) epileptic -session">
+      <created>1585162008640</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1585162008640</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -332,6 +339,7 @@
     <MESSAGE value="19th commit(postgres) BlessRng aaaaaaa" />
     <MESSAGE value="20th commit(postgres) BlessRng aaaaaaa wwtf" />
     <MESSAGE value="21th commit(postgres) epileptic" />
-    <option name="LAST_COMMIT_MESSAGE" value="21th commit(postgres) epileptic" />
+    <MESSAGE value="22th commit(postgres) epileptic -session" />
+    <option name="LAST_COMMIT_MESSAGE" value="22th commit(postgres) epileptic -session" />
   </component>
 </project>
