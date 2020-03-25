@@ -54,12 +54,17 @@ def send_question(viber_id):
     session = Session()
     select_query = session.query(Users.all_answers, Users.correct_answers, Users.user_id,
                                  Users.dt_last_answer).filter(Users.viber_id == viber_id).one()
+    session.close()
     if select_query[0] >= 10:
         temp_correct_answers = select_query[1]
+        session = Session()
         update_query = session.query(Users).filter(Users.viber_id == viber_id).one()
         update_query.all_answers = 0
         update_query.correct_answers = 0
         session.commit()
+        session.close()
+
+        session = Session()
         select_query2 = session.query(Learning.word).filter(Learning.user_id == select_query[2]).filter(
             Learning.right_answer >= 5).count()
         session.close()
@@ -76,18 +81,25 @@ def send_question(viber_id):
         while temp_correct_answer >= 5:
             question = random.choice(data)
             try:
+                session = Session()
                 session.add(Learning(user_id=select_query[2], word=question['word']))
                 session.commit()
+                session.close()
             except:
                 session.rollback()
+                session.close()
 
+            session = Session()
             select_query2 = session.query(Learning.right_answer).filter(Learning.user_id == select_query[2]).filter(
                 Learning.word == question['word']).one()
+            session.close()
             temp_correct_answer = select_query2[0]
 
+        session = Session()
         update_query = session.query(Users).filter(Users.viber_id == viber_id).one()
         update_query.question = str(question)
         session.commit()
+        session.close()
 
         temp_answers.append(question['translation'])
 
@@ -99,7 +111,6 @@ def send_question(viber_id):
                              'answer': f"{temp_answers[i]}"}
             KEYBOARD2['Buttons'][i]['Text'] = f'{temp_answers[i]}'
             KEYBOARD2['Buttons'][i]['ActionBody'] = f'{temp_question}'
-        session.close()
         return TextMessage(text=f'{select_query[0] + 1}.Как переводится слово {question["word"]}',
                            keyboard=KEYBOARD2, tracking_data='tracking_data')
 
@@ -108,27 +119,36 @@ def check_answer(viber_id, user_answer, question_number):
     check = 'Неверно'
     session = Session()
     select_query = session.query(Users.question, Users.user_id, Users.all_answers).filter(Users.viber_id == viber_id).one()
+    session.close()
     question = eval(select_query[0])
     if int(question_number) == int(select_query[2]):
+        session = Session()
         update_query = session.query(Users).filter(Users.viber_id == viber_id).one()
         update_query.all_answers += 1
         update_query.dt_last_answer = datetime.utcnow()
         session.commit()
+        session.close()
 
         if user_answer == question['translation']:
+            session = Session()
             update_query1 = session.query(Users).filter(Users.viber_id == viber_id).one()
             update_query1.correct_answers += 1
             session.commit()
+            session.close()
 
+            session = Session()
             update_query2 = session.query(Learning).filter(Learning.word == question['word']).filter(
                 Learning.user_id == select_query[1]).one()
             update_query2.right_answer += 1
             update_query2.dt_last_answer = datetime.utcnow()
             session.commit()
+            session.close()
+
+            session = Session()
             select_query2 = session.query(Learning.right_answer).filter(Learning.word == question['word']).filter(
                 Learning.user_id == select_query[1]).one()
+            session.close()
             check = f'Верно. Количество правильных ответов: {select_query2[0]}'
-        session.close()
         return TextMessage(text=check, keyboard=KEYBOARD2, tracking_data='tracking_data')
     return TextMessage(text='тут выход')
 
@@ -136,8 +156,8 @@ def check_answer(viber_id, user_answer, question_number):
 def send_example(viber_id):
     session = Session()
     select_query = session.query(Users.question).filter(Users.viber_id == viber_id).one()
-    question = eval(select_query[0])
     session.close()
+    question = eval(select_query[0])
     return TextMessage(text=f'{random.choice(question["examples"])}',
                        keyboard=KEYBOARD2, tracking_data='tracking_data')
 
@@ -149,6 +169,10 @@ def update_time(viber_id):
     session.commit()
     session.close()
     return TextMessage(text='Прохождение теста отложено на полчаса KEKW')
+
+
+def get_question_number():
+    pass
 
 
 app = Flask(__name__)

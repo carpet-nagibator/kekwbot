@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="eba61307-3237-4f83-a67c-66ddf9f991c8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mydb.db" beforeDir="false" afterPath="$PROJECT_DIR$/mydb.db" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +40,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.app">
+  <component name="RunManager" selected="Python.set_webhook">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="test" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -143,8 +141,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.app" />
         <item itemvalue="Python.set_webhook" />
+        <item itemvalue="Python.app" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.test1" />
         <item itemvalue="Python tests.Unittests in Test2.py" />
@@ -288,7 +286,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584780996178</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="21th commit(postgres) epileptic">
+      <created>1584790101305</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1584790101336</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -299,7 +304,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -324,6 +331,7 @@
     <MESSAGE value="18th commit(postgres) BlessRng aaaaaaa" />
     <MESSAGE value="19th commit(postgres) BlessRng aaaaaaa" />
     <MESSAGE value="20th commit(postgres) BlessRng aaaaaaa wwtf" />
-    <option name="LAST_COMMIT_MESSAGE" value="20th commit(postgres) BlessRng aaaaaaa wwtf" />
+    <MESSAGE value="21th commit(postgres) epileptic" />
+    <option name="LAST_COMMIT_MESSAGE" value="21th commit(postgres) epileptic" />
   </component>
 </project>
