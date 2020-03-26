@@ -1,5 +1,6 @@
 import json
 import random
+from collections import deque
 from datetime import datetime
 from Settings import TOKEN, WEBHOOK
 from flask import Flask, request, Response, render_template
@@ -37,6 +38,31 @@ class Learning(Base):
     right_answer = Column(Integer, nullable=False, default=0)
     dt_last_answer = Column(DateTime)
     users = relationship('Users', back_populates='words')
+
+
+class TokenHolder():
+    def __init__(self):
+        self.q = deque()
+
+    def add(self, token):
+        self.q.append(token)
+
+    def pop(self):
+        self.q.popleft()
+
+    def clear(self, num):
+        i = 0
+        while i < num:
+            self.q.popleft()
+            i+=1
+
+    def isIn(self, token):
+        if token in self.q:
+            return True
+        return False
+
+    def __len__(self):
+        return self.q.__len__()
 
 
 def add_user(viber_id):
@@ -186,6 +212,7 @@ bot_configuration = BotConfiguration(
 )
 
 viber = Api(bot_configuration)
+message_token = TokenHolder()
 
 
 @app.route('/')
@@ -257,28 +284,33 @@ def incoming():
                         keyboard=KEYBOARD1, tracking_data='tracking_data')
         ])
     if isinstance(viber_request, ViberMessageRequest):
-        current_id = viber_request.sender.id
-        message = viber_request.message
-        if isinstance(message, TextMessage):
-            text = message.text
-            print(text)
-            # чтение введёного текста
-            if text == "Давай начнём!":
-                bot_response = send_question(current_id)
-                viber.send_messages(current_id, bot_response)
-            elif text == "Показать пример":
-                bot_response = send_example(current_id)
-                viber.send_messages(current_id, bot_response)
-            elif text == "Отложить":
-                bot_response = update_time(current_id)
-                viber.send_messages(current_id, bot_response)
-            else:
-                answer = eval(text)
-                question_number = get_question_number(current_id)
-                if int(question_number) == int(answer['question_number']):
-                    bot_response_1 = check_answer(current_id, answer['answer'])
-                    bot_response_2 = send_question(current_id)
-                    viber.send_messages(current_id, [bot_response_1, bot_response_2])
+        if not message_token.isIn(viber_request.message_token):
+            message_token.add(viber_request.message_token)
+            message_token.__repr__()
+            if message_token.__len__() > 10000:
+                message_token.clear(100)
+            current_id = viber_request.sender.id
+            message = viber_request.message
+            if isinstance(message, TextMessage):
+                text = message.text
+                print(text)
+                # чтение введёного текста
+                if text == "Давай начнём!":
+                    bot_response = send_question(current_id)
+                    viber.send_messages(current_id, bot_response)
+                elif text == "Показать пример":
+                    bot_response = send_example(current_id)
+                    viber.send_messages(current_id, bot_response)
+                elif text == "Отложить":
+                    bot_response = update_time(current_id)
+                    viber.send_messages(current_id, bot_response)
+                else:
+                    answer = eval(text)
+                    question_number = get_question_number(current_id)
+                    if int(question_number) == int(answer['question_number']):
+                        bot_response_1 = check_answer(current_id, answer['answer'])
+                        bot_response_2 = send_question(current_id)
+                        viber.send_messages(current_id, [bot_response_1, bot_response_2])
     return Response(status=200)
 
 
