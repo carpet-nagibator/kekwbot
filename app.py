@@ -167,7 +167,7 @@ def update_time(viber_id):
     update_query.dt_last_answer = datetime.utcnow()
     session.commit()
     session.close()
-    return TextMessage(text='Прохождение теста отложено на полчаса KEKW')
+    return TextMessage(text='Прохождение теста отложено на полчаса')
 
 
 def get_question_number(viber_id):
