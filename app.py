@@ -2,7 +2,7 @@ import json
 import random
 from datetime import datetime
 from Settings import TOKEN, WEBHOOK
-from flask import Flask, request, Response
+from flask import Flask, request, Response, render_template
 from sqlalchemy import create_engine, ForeignKey, Column, Integer, String, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, relationship
@@ -178,7 +178,6 @@ def get_question_number(viber_id):
 
 
 app = Flask(__name__)
-count = 0
 
 bot_configuration = BotConfiguration(
     name='olddrunkenwolf',
@@ -191,9 +190,7 @@ viber = Api(bot_configuration)
 
 @app.route('/')
 def hello():
-    global count
-    count += 1
-    return f'Hello world {count}'
+    return render_template('index.html')
 
 
 with open("english_words.json", "r", encoding='utf-8') as f:
