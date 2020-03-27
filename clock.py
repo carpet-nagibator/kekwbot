@@ -4,6 +4,7 @@ from viberbot.api.bot_configuration import BotConfiguration
 from viberbot.api.messages import TextMessage
 from app import Session, Users
 from datetime import datetime
+import requests
 from apscheduler.schedulers.blocking import BlockingScheduler
 
 bot_configuration = BotConfiguration(
@@ -48,6 +49,13 @@ def timed_job():
             bot_response = TextMessage(text='Пройдите тест заново', keyboard=KEYBOARD3, tracking_data='tracking_data')
             viber.send_messages(user[0], bot_response)
     session.close()
+
+
+@sched.scheduled_job('interval', minutes=30)
+def awake_bot():
+    r = requests.get("https://kekwbot.herokuapp.com")
+    if r.status_code == 200:
+        print("Bot is awake")
 
 
 sched.start()

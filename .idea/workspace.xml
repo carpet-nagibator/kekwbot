@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="eba61307-3237-4f83-a67c-66ddf9f991c8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clock.py" beforeDir="false" afterPath="$PROJECT_DIR$/clock.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -328,7 +328,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585214558626</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="26th commit (1st nedorabotka)">
+      <created>1585250283417</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1585250283417</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -371,6 +378,7 @@
     <MESSAGE value="23th commit (2nd nedorabotka)" />
     <MESSAGE value="24th commit (/)" />
     <MESSAGE value="25th commit (/)" />
-    <option name="LAST_COMMIT_MESSAGE" value="25th commit (/)" />
+    <MESSAGE value="26th commit (1st nedorabotka)" />
+    <option name="LAST_COMMIT_MESSAGE" value="26th commit (1st nedorabotka)" />
   </component>
 </project>
