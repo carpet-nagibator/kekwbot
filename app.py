@@ -247,13 +247,13 @@ def hello():
     return render_template('index.html')
 
 
-# @app.route('/settings')
-# def settings():
-#     session = Session()
-#     select_query = session.query(Settings.remind_time, Settings.count_words, Settings.count_to_learn).one()
-#     session.close()
-#     return render_template('settings.html', remind_time=select_query[0], count_words=select_query[1],
-#                            count_to_learn=select_query[2])
+@app.route('/settings')
+def settings():
+    session = Session()
+    select_query = session.query(Settings.remind_time, Settings.count_words, Settings.count_to_learn).one()
+    session.close()
+    return render_template('settings.html', remind_time=select_query[0], count_words=select_query[1],
+                           count_to_learn=select_query[2])
 
 
 # @app.route('/accept', methods=['POST'])
