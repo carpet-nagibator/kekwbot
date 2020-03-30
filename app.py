@@ -42,7 +42,8 @@ class Learning(Base):
 
 class Settings(Base):
     __tablename__ = 'settings'
-    id = Column(Integer, nullable=False, unique=True)
+    id = Column(Integer, primary_key=True)
+    id_set = Column(Integer, nullable=False, unique=True)
     remind_time = Column(Integer, nullable=False)
     count_words = Column(Integer, nullable=False)
     count_to_learn = Column(Integer, nullable=False)
