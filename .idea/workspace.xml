@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eba61307-3237-4f83-a67c-66ddf9f991c8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -425,7 +426,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585588450152</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="38th commit (settings + accept)">
+      <created>1585589506656</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1585589506656</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -445,7 +453,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="15th commit(postgres) BlessRng aaaaaaa" />
     <MESSAGE value="16th commit(postgres) BlessRng aaaaaaa" />
     <MESSAGE value="17th commit(postgres) BlessRng aaaaaaa" />
     <MESSAGE value="18th commit(postgres) BlessRng aaaaaaa" />
@@ -470,6 +477,7 @@
     <MESSAGE value="36th commit (data + app)" />
     <MESSAGE value="37th commit (data + app + clock)" />
     <MESSAGE value="38th commit (settings)" />
-    <option name="LAST_COMMIT_MESSAGE" value="38th commit (settings)" />
+    <MESSAGE value="38th commit (settings + accept)" />
+    <option name="LAST_COMMIT_MESSAGE" value="38th commit (settings + accept)" />
   </component>
 </project>

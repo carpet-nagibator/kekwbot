@@ -106,7 +106,6 @@ def send_question(viber_id):
     settings = session.query(Settings.count_words, Settings.count_to_learn).filter(Settings.id_set == 1).one()
     session.close()
 
-    # if select_query[0] >= 10:
     if select_query[0] >= settings[0]:
         temp_correct_answers = select_query[1]
         session = Session()
@@ -120,7 +119,7 @@ def send_question(viber_id):
         select_query2 = session.query(Learning.word).filter(Learning.user_id == select_query[2]).filter(
             Learning.right_answer >= 5).count()
         session.close()
-        return TextMessage(text=f'У вас {temp_correct_answers} верных из 10. '
+        return TextMessage(text=f'У вас {temp_correct_answers} верных из {settings[0]}. '
                                 f'Вы уже выучили {select_query2} слов. '
                                 f'Осталось выучить {50 - select_query2} слов. '
                                 f'Последний опрос пройден {str(select_query[3])[:16]}. '
@@ -130,7 +129,6 @@ def send_question(viber_id):
         temp_answers = []
         temp_correct_answer = 100
         question = {}
-        # while temp_correct_answer >= 5:
         while temp_correct_answer >= settings[1]:
             question = random.choice(data)
             try:
