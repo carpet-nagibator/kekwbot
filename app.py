@@ -102,12 +102,12 @@ def send_question(viber_id):
                                  Users.dt_last_answer).filter(Users.viber_id == viber_id).one()
     session.close()
 
-    # session = Session()
-    # count_words = session.query(Settings.count_words, Settings.count_to_learn).filter(Settings.id_set == 1).one()
-    # session.close()
+    session = Session()
+    count_words = session.query(Settings.count_words, Settings.count_to_learn).filter(Settings.id_set == 1).one()
+    session.close()
 
-    #if select_query[0] >= count_words[0]:
-    if select_query[0] >= 10:
+    # if select_query[0] >= 10:
+    if select_query[0] >= count_words[0]:
         temp_correct_answers = select_query[1]
         session = Session()
         update_query = session.query(Users).filter(Users.viber_id == viber_id).one()
@@ -130,8 +130,8 @@ def send_question(viber_id):
         temp_answers = []
         temp_correct_answer = 100
         question = {}
-        #while temp_correct_answer >= count_words[1]:
-        while temp_correct_answer >= 5:
+        # while temp_correct_answer >= 5:
+        while temp_correct_answer >= count_words[1]:
             question = random.choice(data)
             try:
                 session = Session()
