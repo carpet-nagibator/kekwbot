@@ -369,7 +369,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585577543396</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="32th commit (settings(post)last)">
+      <created>1585579571298</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1585579571298</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -389,7 +396,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="7th commit" />
     <MESSAGE value="8th commit" />
     <MESSAGE value="9th commit" />
     <MESSAGE value="10th commit(postgres)" />
@@ -414,6 +420,7 @@
     <MESSAGE value="29th commit (3th nedorabotka(test clock 2))" />
     <MESSAGE value="30th commit (settings)" />
     <MESSAGE value="31th commit (settings(post))" />
-    <option name="LAST_COMMIT_MESSAGE" value="31th commit (settings(post))" />
+    <MESSAGE value="32th commit (settings(post)last)" />
+    <option name="LAST_COMMIT_MESSAGE" value="32th commit (settings(post)last)" />
   </component>
 </project>

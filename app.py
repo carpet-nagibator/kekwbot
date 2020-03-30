@@ -231,6 +231,20 @@ message_token = TokenHolder()
 
 @app.route('/', methods=['POST'])
 def hello():
+    return render_template('index.html')
+
+
+@app.route('/settings')
+def settings():
+    session = Session()
+    select_query = session.query(Settings.remind_time, Settings.count_words, Settings.count_to_learn).one()
+    session.close()
+    return render_template('settings.html', remind_time=select_query[0], count_words=select_query[1],
+                           count_to_learn=select_query[2])
+
+
+@app.route('/accept')
+def accept():
     session = Session()
     try:
         session.add(Settings(id_set=1, remind_time=360000, count_words=10, count_to_learn=5))
@@ -251,16 +265,7 @@ def hello():
     update_query.count_to_learn = count_to_learn
     session.commit()
     session.close()
-    return render_template('index.html')
-
-
-@app.route('/settings')
-def settings():
-    session = Session()
-    select_query = session.query(Settings.remind_time, Settings.count_words, Settings.count_to_learn).one()
-    session.close()
-    return render_template('settings.html', remind_time=select_query[0], count_words=select_query[1],
-                           count_to_learn=select_query[2])
+    return 'Hello world!'
 
 
 with open("english_words.json", "r", encoding='utf-8') as f:
