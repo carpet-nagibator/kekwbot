@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eba61307-3237-4f83-a67c-66ddf9f991c8" name="Default Changelist" comment="">
+    <list default="true" id="eba61307-3237-4f83-a67c-66ddf9f991c8" name="Default Changelist" comment="29th commit (3th nedorabotka(test clock 2))">
+      <change afterPath="$PROJECT_DIR$/templates/settings.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clock.py" beforeDir="false" afterPath="$PROJECT_DIR$/clock.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +50,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.set_webhook">
+  <component name="RunManager" selected="Python.test">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="test" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -148,9 +151,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.set_webhook" />
         <item itemvalue="Python.app" />
-        <item itemvalue="Python.test" />
         <item itemvalue="Python.test1" />
         <item itemvalue="Python tests.Unittests in C:/Users/1/PycharmProjects/test/Test2.py" />
       </list>
@@ -349,7 +352,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585320095311</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="29th commit (3th nedorabotka(test clock 2))">
+      <created>1585476420871</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1585476420871</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -369,7 +379,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="4th commit" />
     <MESSAGE value="5th commit" />
     <MESSAGE value="6th commit" />
     <MESSAGE value="7th commit" />
@@ -394,6 +403,7 @@
     <MESSAGE value="26th commit (1st nedorabotka)" />
     <MESSAGE value="27th commit (3th nedorabotka)" />
     <MESSAGE value="28th commit (3th nedorabotka(test clock))" />
-    <option name="LAST_COMMIT_MESSAGE" value="28th commit (3th nedorabotka(test clock))" />
+    <MESSAGE value="29th commit (3th nedorabotka(test clock 2))" />
+    <option name="LAST_COMMIT_MESSAGE" value="29th commit (3th nedorabotka(test clock 2))" />
   </component>
 </project>

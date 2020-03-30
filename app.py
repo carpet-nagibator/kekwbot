@@ -40,6 +40,14 @@ class Learning(Base):
     users = relationship('Users', back_populates='words')
 
 
+class Settings(Base):
+    __tablename__ = 'settings'
+    id = Column(Integer, nullable=False, unique=True)
+    remind_time = Column(Integer, nullable=False)
+    count_words = Column(Integer, nullable=False)
+    count_to_learn = Column(Integer, nullable=False)
+
+
 class TokenHolder():
     def __init__(self):
         self.q = deque()
@@ -81,7 +89,12 @@ def send_question(viber_id):
     select_query = session.query(Users.all_answers, Users.correct_answers, Users.user_id,
                                  Users.dt_last_answer).filter(Users.viber_id == viber_id).one()
     session.close()
-    if select_query[0] >= 10:
+
+    session = Session()
+    count_words = session.query(Settings.count_words, Settings.count_to_learn).one()
+    session.close()
+
+    if select_query[0] >= count_words[0]:
         temp_correct_answers = select_query[1]
         session = Session()
         update_query = session.query(Users).filter(Users.viber_id == viber_id).one()
@@ -104,7 +117,7 @@ def send_question(viber_id):
         temp_answers = []
         temp_correct_answer = 100
         question = {}
-        while temp_correct_answer >= 5:
+        while temp_correct_answer >= count_words[1]:
             question = random.choice(data)
             try:
                 session = Session()
@@ -215,9 +228,38 @@ viber = Api(bot_configuration)
 message_token = TokenHolder()
 
 
-@app.route('/')
+@app.route('/', methods=['POST'])
 def hello():
+    session = Session()
+    try:
+        session.add(Settings(id_set=1, remind_time=360000, count_words=10, count_to_learn=5))
+        session.commit()
+        session.close()
+    except:
+        session.rollback()
+        session.close()
+
+    remind_time = int(request.form.get('remind_time'))
+    count_words = int(request.form.get('count_words'))
+    count_to_learn = int(request.form.get('count_to_learn'))
+
+    session = Session()
+    update_query = session.query(Settings).one()
+    update_query.remind_time = remind_time
+    update_query.count_words = count_words
+    update_query.count_to_learn = count_to_learn
+    session.commit()
+    session.close()
     return render_template('index.html')
+
+
+@app.route('/settings')
+def settings():
+    session = Session()
+    select_query = session.query(Settings.remind_time, Settings.count_words, Settings.count_to_learn).one()
+    session.close()
+    return render_template('settings.html', remind_time=select_query[0], count_words=select_query[1],
+                           count_to_learn=select_query[2])
 
 
 with open("english_words.json", "r", encoding='utf-8') as f:
@@ -272,7 +314,7 @@ KEYBOARD2 = {
 
 @app.route('/incoming', methods=['POST'])
 def incoming():
-    #Base.metadata.create_all(engine)
+    Base.metadata.create_all(engine)
     viber_request = viber.parse_request(request.get_data())
     print(viber_request)
     if isinstance(viber_request, ViberConversationStartedRequest):
