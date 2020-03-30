@@ -256,29 +256,20 @@ def settings():
                            count_to_learn=select_query[2])
 
 
-# @app.route('/accept', methods=['POST'])
-# def accept():
-#     session = Session()
-#     try:
-#         session.add(Settings(id_set=1, remind_time=360000, count_words=10, count_to_learn=5))
-#         session.commit()
-#         session.close()
-#     except:
-#         session.rollback()
-#         session.close()
-#
-#     remind_time = int(request.form.get('remind_time'))
-#     count_words = int(request.form.get('count_words'))
-#     count_to_learn = int(request.form.get('count_to_learn'))
-#
-#     session = Session()
-#     update_query = session.query(Settings).one()
-#     update_query.remind_time = remind_time
-#     update_query.count_words = count_words
-#     update_query.count_to_learn = count_to_learn
-#     session.commit()
-#     session.close()
-#     return 'Hello world!'
+@app.route('/accept', methods=['POST'])
+def accept():
+    remind_time = int(request.form.get('remind_time'))
+    count_words = int(request.form.get('count_words'))
+    count_to_learn = int(request.form.get('count_to_learn'))
+
+    session = Session()
+    update_query = session.query(Settings).one()
+    update_query.remind_time = remind_time
+    update_query.count_words = count_words
+    update_query.count_to_learn = count_to_learn
+    session.commit()
+    session.close()
+    return 'Настройки сохранены!'
 
 
 with open("english_words.json", "r", encoding='utf-8') as f:
