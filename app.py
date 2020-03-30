@@ -335,6 +335,7 @@ KEYBOARD2 = {
 def incoming():
     Base.metadata.create_all(engine)
     viber_request = viber.parse_request(request.get_data())
+    add_settings()
     print(viber_request)
     if isinstance(viber_request, ViberConversationStartedRequest):
         # идентификация/добавление нового пользователя

@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eba61307-3237-4f83-a67c-66ddf9f991c8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clock.py" beforeDir="false" afterPath="$PROJECT_DIR$/clock.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -392,7 +390,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585582327877</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="35th commit (settings + table)">
+      <created>1585584690140</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1585584690140</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -412,7 +417,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="10th commit(postgres)" />
     <MESSAGE value="11th commit(postgres) BlessRng" />
     <MESSAGE value="12th commit(postgres) BlessRng" />
     <MESSAGE value="13th commit(postgres) BlessRng" />
@@ -437,6 +441,7 @@
     <MESSAGE value="32th commit (settings(post)last)" />
     <MESSAGE value="33th commit (settings(post)last 2)" />
     <MESSAGE value="34th commit (settings(post)last 3)" />
-    <option name="LAST_COMMIT_MESSAGE" value="34th commit (settings(post)last 3)" />
+    <MESSAGE value="35th commit (settings + table)" />
+    <option name="LAST_COMMIT_MESSAGE" value="35th commit (settings + table)" />
   </component>
 </project>
