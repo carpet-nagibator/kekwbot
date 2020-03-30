@@ -229,7 +229,7 @@ viber = Api(bot_configuration)
 message_token = TokenHolder()
 
 
-@app.route('/', methods=['POST'])
+@app.route('/')
 def hello():
     return render_template('index.html')
 
@@ -243,7 +243,7 @@ def settings():
                            count_to_learn=select_query[2])
 
 
-@app.route('/accept')
+@app.route('/accept', methods=['POST'])
 def accept():
     session = Session()
     try:
