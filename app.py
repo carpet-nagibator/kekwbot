@@ -329,7 +329,7 @@ def incoming():
         # if not message_tokens.is_in(viber_request.message_token):
         #     message_tokens.add_token(viber_request.message_token)
         #     message_tokens.get_all()
-        if not viber_request.message_token in message_tokens:
+        if viber_request.message_token not in message_tokens:
             message_tokens.append(viber_request.message_token)
             print(message_tokens)
             current_id = viber_request.sender.id
