@@ -117,7 +117,7 @@ def send_question(viber_id):
 
         session = Session()
         select_query2 = session.query(Learning.word).filter(Learning.user_id == select_query[2]).filter(
-            Learning.right_answer >= 5).count()
+            Learning.right_answer >= settings[1]).count()
         session.close()
         return TextMessage(text=f'У вас {temp_correct_answers} верных из {settings[0]}. '
                                 f'Вы уже выучили {select_query2} слов. '
