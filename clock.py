@@ -57,11 +57,11 @@ def timed_job():
             viber.send_messages(user[0], bot_response)
 
 
-# @sched.scheduled_job('interval', minutes=30)
-# def awake_bot():
-#     r = requests.get("https://kekwbot.herokuapp.com")
-#     if r.status_code == 200:
-#         print("Bot is awake")
+@sched.scheduled_job('interval', minutes=30)
+def awake_bot():
+    r = requests.get("https://kekwbot.herokuapp.com")
+    if r.status_code == 200:
+        print("Bot is awake")
 
 
 sched.start()
