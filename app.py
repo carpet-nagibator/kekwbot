@@ -51,27 +51,18 @@ class Settings(Base):
 
 class TokenHolder():
     def __init__(self):
-        self.q = deque()
+        self.q = deque(maxlen=10)
 
-    def add(self, token):
+    def add_token(self, token):
         self.q.append(token)
 
-    def pop(self):
-        self.q.popleft()
-
-    def clear(self, num):
-        i = 0
-        while i < num:
-            self.q.popleft()
-            i+=1
-
-    def isIn(self, token):
+    def is_in(self, token):
         if token in self.q:
             return True
         return False
 
-    def __len__(self):
-        return self.q.__len__()
+    def get_all(self):
+        print(self.q)
 
 
 def add_user(viber_id):
@@ -237,7 +228,7 @@ bot_configuration = BotConfiguration(
 )
 
 viber = Api(bot_configuration)
-message_token = TokenHolder()
+message_tokens = TokenHolder()
 
 
 @app.route('/')
@@ -335,11 +326,9 @@ def incoming():
                         keyboard=KEYBOARD1, tracking_data='tracking_data')
         ])
     if isinstance(viber_request, ViberMessageRequest):
-        if not message_token.isIn(viber_request.message_token):
-            message_token.add(viber_request.message_token)
-            message_token.__repr__()
-            if message_token.__len__() > 10000:
-                message_token.clear(100)
+        if not message_tokens.is_in(viber_request.message_token):
+            message_tokens.add_token(viber_request.message_token)
+            message_tokens.get_all()
             current_id = viber_request.sender.id
             message = viber_request.message
             if isinstance(message, TextMessage):

@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eba61307-3237-4f83-a67c-66ddf9f991c8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clock.py" beforeDir="false" afterPath="$PROJECT_DIR$/clock.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/settings.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -448,7 +447,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585639883326</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="41th commit (awake test + fix settings)">
+      <created>1585648442179</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1585648442179</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -468,7 +474,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="18th commit(postgres) BlessRng aaaaaaa" />
     <MESSAGE value="19th commit(postgres) BlessRng aaaaaaa" />
     <MESSAGE value="20th commit(postgres) BlessRng aaaaaaa wwtf" />
     <MESSAGE value="21th commit(postgres) epileptic" />
@@ -493,6 +498,7 @@
     <MESSAGE value="38th commit (settings + accept)" />
     <MESSAGE value="39th commit (settings + accept(min fix))" />
     <MESSAGE value="40th commit (settings + accept(min fix 2))" />
-    <option name="LAST_COMMIT_MESSAGE" value="40th commit (settings + accept(min fix 2))" />
+    <MESSAGE value="41th commit (awake test + fix settings)" />
+    <option name="LAST_COMMIT_MESSAGE" value="41th commit (awake test + fix settings)" />
   </component>
 </project>
