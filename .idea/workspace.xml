@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eba61307-3237-4f83-a67c-66ddf9f991c8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clock.py" beforeDir="false" afterPath="$PROJECT_DIR$/clock.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -454,7 +454,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585648442179</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="42th commit (message tokens)">
+      <created>1585666523455</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1585666523455</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -474,7 +481,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="19th commit(postgres) BlessRng aaaaaaa" />
     <MESSAGE value="20th commit(postgres) BlessRng aaaaaaa wwtf" />
     <MESSAGE value="21th commit(postgres) epileptic" />
     <MESSAGE value="22th commit(postgres) epileptic -session" />
@@ -499,6 +505,7 @@
     <MESSAGE value="39th commit (settings + accept(min fix))" />
     <MESSAGE value="40th commit (settings + accept(min fix 2))" />
     <MESSAGE value="41th commit (awake test + fix settings)" />
-    <option name="LAST_COMMIT_MESSAGE" value="41th commit (awake test + fix settings)" />
+    <MESSAGE value="42th commit (message tokens)" />
+    <option name="LAST_COMMIT_MESSAGE" value="42th commit (message tokens)" />
   </component>
 </project>

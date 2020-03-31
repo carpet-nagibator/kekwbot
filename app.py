@@ -228,8 +228,8 @@ bot_configuration = BotConfiguration(
 )
 
 viber = Api(bot_configuration)
-message_tokens = TokenHolder()
-
+#message_tokens = TokenHolder()
+message_tokens = deque(maxlen=10)
 
 @app.route('/')
 def hello():
@@ -313,9 +313,9 @@ KEYBOARD2 = {
 
 @app.route('/incoming', methods=['POST'])
 def incoming():
-    Base.metadata.create_all(engine)
+    #Base.metadata.create_all(engine)
+    # add_settings()
     viber_request = viber.parse_request(request.get_data())
-    add_settings()
     print(viber_request)
     if isinstance(viber_request, ViberConversationStartedRequest):
         # идентификация/добавление нового пользователя
@@ -326,9 +326,12 @@ def incoming():
                         keyboard=KEYBOARD1, tracking_data='tracking_data')
         ])
     if isinstance(viber_request, ViberMessageRequest):
-        if not message_tokens.is_in(viber_request.message_token):
-            message_tokens.add_token(viber_request.message_token)
-            message_tokens.get_all()
+        # if not message_tokens.is_in(viber_request.message_token):
+        #     message_tokens.add_token(viber_request.message_token)
+        #     message_tokens.get_all()
+        if viber_request.message_token in message_tokens:
+            message_tokens.append(viber_request.message_token)
+            print(message_tokens)
             current_id = viber_request.sender.id
             message = viber_request.message
             if isinstance(message, TextMessage):
