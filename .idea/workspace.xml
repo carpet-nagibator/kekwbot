@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eba61307-3237-4f83-a67c-66ddf9f991c8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -482,7 +481,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585679312707</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="44th commit (message tokens (non class -mozg 3) test)">
+      <created>1585732357501</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1585732357501</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -502,7 +508,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="23th commit (2nd nedorabotka)" />
     <MESSAGE value="24th commit (/)" />
     <MESSAGE value="25th commit (/)" />
     <MESSAGE value="26th commit (1st nedorabotka)" />
@@ -527,6 +532,7 @@
     <MESSAGE value="42th commit (message tokens (non class))" />
     <MESSAGE value="43th commit (message tokens (non class -mozg))" />
     <MESSAGE value="43th commit (message tokens (non class -mozg 2))" />
-    <option name="LAST_COMMIT_MESSAGE" value="43th commit (message tokens (non class -mozg 2))" />
+    <MESSAGE value="44th commit (message tokens (non class -mozg 3) test)" />
+    <option name="LAST_COMMIT_MESSAGE" value="44th commit (message tokens (non class -mozg 3) test)" />
   </component>
 </project>

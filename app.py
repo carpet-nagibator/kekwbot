@@ -7,6 +7,7 @@ from flask import Flask, request, Response, render_template
 from sqlalchemy import create_engine, ForeignKey, Column, Integer, String, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, relationship
+from sqlalchemy.pool import NullPool
 from viberbot import Api
 from viberbot.api.bot_configuration import BotConfiguration
 from viberbot.api.viber_requests import ViberMessageRequest, ViberConversationStartedRequest
@@ -15,7 +16,7 @@ from viberbot.api.messages import (
 )
 
 #engine = create_engine('sqlite:///mydb.db', echo=True)
-engine = create_engine('postgres://lczzteaucanfvc:994b06b0eb663196de10011cdc9f3f087130adeba87ebb6fddb482fe371ce3cc@ec2-52-200-119-0.compute-1.amazonaws.com:5432/dcqbg6ek6hjaiq', echo=True)
+engine = create_engine('postgres://lczzteaucanfvc:994b06b0eb663196de10011cdc9f3f087130adeba87ebb6fddb482fe371ce3cc@ec2-52-200-119-0.compute-1.amazonaws.com:5432/dcqbg6ek6hjaiq', echo=True, poolclass=NullPool)
 Base = declarative_base()
 Session = sessionmaker(engine)
 
