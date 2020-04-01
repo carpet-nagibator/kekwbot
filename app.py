@@ -123,8 +123,8 @@ def send_question(viber_id):
         question = {}
         while temp_correct_answer >= settings[1]:
             question = random.choice(data)
+            session = Session()
             try:
-                session = Session()
                 session.add(Learning(user_id=select_query[2], word=question['word']))
                 session.commit()
                 session.close()
