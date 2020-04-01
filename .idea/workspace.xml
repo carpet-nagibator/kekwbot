@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eba61307-3237-4f83-a67c-66ddf9f991c8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -467,7 +468,21 @@
       <option name="project" value="LOCAL" />
       <updated>1585678515821</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="43th commit (message tokens (non class -mozg))">
+      <created>1585679251794</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1585679251794</updated>
+    </task>
+    <task id="LOCAL-00045" summary="43th commit (message tokens (non class -mozg 2))">
+      <created>1585679312707</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1585679312707</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -487,8 +502,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="21th commit(postgres) epileptic" />
-    <MESSAGE value="22th commit(postgres) epileptic -session" />
     <MESSAGE value="23th commit (2nd nedorabotka)" />
     <MESSAGE value="24th commit (/)" />
     <MESSAGE value="25th commit (/)" />
@@ -512,6 +525,8 @@
     <MESSAGE value="41th commit (awake test + fix settings)" />
     <MESSAGE value="42th commit (message tokens)" />
     <MESSAGE value="42th commit (message tokens (non class))" />
-    <option name="LAST_COMMIT_MESSAGE" value="42th commit (message tokens (non class))" />
+    <MESSAGE value="43th commit (message tokens (non class -mozg))" />
+    <MESSAGE value="43th commit (message tokens (non class -mozg 2))" />
+    <option name="LAST_COMMIT_MESSAGE" value="43th commit (message tokens (non class -mozg 2))" />
   </component>
 </project>
