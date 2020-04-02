@@ -52,8 +52,11 @@ def timed_job():
         delta = datetime.utcnow() - user[1]
         print(f'delta time = {delta.seconds}')
         if delta.seconds > settings[0]:
-            bot_response = TextMessage(text='Пройдите тест заново', keyboard=KEYBOARD3, tracking_data='tracking_data')
-            viber.send_messages(user[0], bot_response)
+            try:
+                bot_response = TextMessage(text='Пройдите тест заново', keyboard=KEYBOARD3, tracking_data='tracking_data')
+                viber.send_messages(user[0], bot_response)
+            except:
+                print("Пользователь отписался")
 
 
 @sched.scheduled_job('interval', minutes=30)
