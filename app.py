@@ -57,7 +57,7 @@ class TokenHolder():
     def add_token(self, token):
         self.q.append(token)
 
-    def is_in(self, token):
+    def check_token(self, token):
         if token in self.q:
             return True
         return False
@@ -230,7 +230,7 @@ bot_configuration = BotConfiguration(
 
 viber = Api(bot_configuration)
 message_tokens = TokenHolder()
-#message_tokens = deque(maxlen=10)
+
 
 @app.route('/')
 def hello():
@@ -327,12 +327,9 @@ def incoming():
                         keyboard=KEYBOARD1, tracking_data='tracking_data')
         ])
     if isinstance(viber_request, ViberMessageRequest):
-        if not message_tokens.is_in(viber_request.message_token):
+        if not message_tokens.check_token(viber_request.message_token):
             message_tokens.add_token(viber_request.message_token)
             message_tokens.get_all()
-        # if viber_request.message_token not in message_tokens:
-        #     message_tokens.append(viber_request.message_token)
-        #     print(message_tokens)
             current_id = viber_request.sender.id
             message = viber_request.message
             if isinstance(message, TextMessage):

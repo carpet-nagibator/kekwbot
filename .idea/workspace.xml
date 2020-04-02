@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eba61307-3237-4f83-a67c-66ddf9f991c8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -495,7 +496,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585733656284</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="46th commit (message tokens (non class -mozg 3) test - parallel + fix session)">
+      <created>1585734457665</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1585734457665</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -515,7 +523,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="25th commit (/)" />
     <MESSAGE value="26th commit (1st nedorabotka)" />
     <MESSAGE value="27th commit (3th nedorabotka)" />
     <MESSAGE value="28th commit (3th nedorabotka(test clock))" />
@@ -540,6 +547,7 @@
     <MESSAGE value="43th commit (message tokens (non class -mozg 2))" />
     <MESSAGE value="44th commit (message tokens (non class -mozg 3) test)" />
     <MESSAGE value="45th commit (message tokens (non class -mozg 3) test - parallel)" />
-    <option name="LAST_COMMIT_MESSAGE" value="45th commit (message tokens (non class -mozg 3) test - parallel)" />
+    <MESSAGE value="46th commit (message tokens (non class -mozg 3) test - parallel + fix session)" />
+    <option name="LAST_COMMIT_MESSAGE" value="46th commit (message tokens (non class -mozg 3) test - parallel + fix session)" />
   </component>
 </project>
