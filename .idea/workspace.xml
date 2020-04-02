@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="eba61307-3237-4f83-a67c-66ddf9f991c8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clock.py" beforeDir="false" afterPath="$PROJECT_DIR$/clock.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -166,13 +166,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1571511561448</updated>
-    </task>
-    <task id="LOCAL-00001" summary="third commit">
-      <created>1584723947936</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1584723947936</updated>
     </task>
     <task id="LOCAL-00002" summary="4th commit">
       <created>1584724492340</created>
@@ -510,7 +503,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585812452854</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="48th commit (finally(fix clock))">
+      <created>1585824734208</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1585824734223</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -530,7 +530,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="27th commit (3th nedorabotka)" />
     <MESSAGE value="28th commit (3th nedorabotka(test clock))" />
     <MESSAGE value="29th commit (3th nedorabotka(test clock 2))" />
     <MESSAGE value="30th commit (settings)" />
@@ -555,6 +554,7 @@
     <MESSAGE value="45th commit (message tokens (non class -mozg 3) test - parallel)" />
     <MESSAGE value="46th commit (message tokens (non class -mozg 3) test - parallel + fix session)" />
     <MESSAGE value="47th commit (finally)" />
-    <option name="LAST_COMMIT_MESSAGE" value="47th commit (finally)" />
+    <MESSAGE value="48th commit (finally(fix clock))" />
+    <option name="LAST_COMMIT_MESSAGE" value="48th commit (finally(fix clock))" />
   </component>
 </project>
